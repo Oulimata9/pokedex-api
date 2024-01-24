@@ -3,7 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Accueil from './Accueil'; // Importez vos composants
+import FicheIndividuelle from './FicheIndividuelle';
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Accueil} />
+        <Route path="/fiche/:id" component={FicheIndividuelle} />
+        {/* Ajoutez d'autres routes selon votre structure */}
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
