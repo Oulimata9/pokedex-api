@@ -1,15 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import MainApp from './App'; // Renommez l'importation pour éviter les conflits de noms
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Accueil from './Accueil'; // Importez vos composants
+import Accueil from './Accueil';
 import FicheIndividuelle from './FicheIndividuelle';
 
-function App() {
-  return (
+const root = document.getElementById('root');
+
+
+ReactDOM.createRoot(root).render(
+  <React.StrictMode>
     <Router>
       <Switch>
         <Route exact path="/" component={Accueil} />
@@ -17,18 +20,14 @@ function App() {
         {/* Ajoutez d'autres routes selon votre structure */}
       </Switch>
     </Router>
-  );
-}
-
-export default App;
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// Utilisez un nom différent pour éviter les conflits de noms
 reportWebVitals();
+
+// Utilisez un nom différent pour éviter les conflits de noms
+const MyMainApp = MainApp;
+
+const appRoot = document.getElementById('root');
+ReactDOM.createRoot(appRoot).render(<MyMainApp />);
