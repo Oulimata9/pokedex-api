@@ -2,10 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function ListePokemon() {
-  // Récupérez la liste des Pokémon et générez des liens
-  const pokemons = [...]; // Votre liste de Pokémon
-
+// Utilisez cette version si vous souhaitez utiliser la version avec les liens
+function ListePokemon({ pokemons }) {
   return (
     <div>
       {pokemons.map(pokemon => (
@@ -17,20 +15,22 @@ function ListePokemon() {
   );
 }
 
-export {ListePokemon};
-
-const ListePokemon = ({ pokemons }) => {
-  return (
-    <div>
-      <ul>
-        {pokemons.map(pokemon => (
-          <li key={pokemon.id}>
-            {pokemon.number} - {pokemon.name} - {pokemon.types.join(', ')}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
 export default ListePokemon;
+
+// Utilisez cette version si vous souhaitez utiliser la version sans les liens
+// (si vous souhaitez conserver les deux versions, assurez-vous de renommer la fonction)
+// function ListePokemon({ pokemons }) {
+//   return (
+//     <div>
+//       <ul>
+//         {pokemons.map(pokemon => (
+//           <li key={pokemon.id}>
+//             {pokemon.number} - {pokemon.name} - {pokemon.types.join(', ')}
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default ListePokemon;
