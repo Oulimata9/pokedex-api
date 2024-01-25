@@ -1,17 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './index.css';
 import MainApp from './App'; // Renommez l'importation pour éviter les conflits de noms
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
-
-
-import Accueil from './Accueil'; 
+import Accueil from './Accueil';
 import FicheIndividuelle from './FicheIndividuelle';
 
 const root = document.getElementById('root');
-
-ReactDOM.createRoot(root).render(
+createRoot(root).render( // Utilise createRoot directement
   <React.StrictMode>
     <Router>
       <Switch>
@@ -30,4 +27,4 @@ reportWebVitals();
 const MyMainApp = MainApp;
 
 const appRoot = document.getElementById('app-root'); // Utilisez un ID différent pour éviter les conflits de noms
-ReactDOM.createRoot(appRoot).render(<MyMainApp />);
+createRoot(appRoot).render(<MyMainApp />);

@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -14,7 +15,7 @@ const FichePokemon = ({ numeroPokemon }) => {
   // ... Reste de ton composant pour afficher les détails du Pokémon
 };
 
-export default FichePokemon; // Correction ici
+export default FichePokemon;
 
 const FicheIndividuelle = ({ pokemon }) => {
   const [showShiny, setShowShiny] = useState(false);
@@ -59,4 +60,4 @@ const FicheIndividuelle = ({ pokemon }) => {
   );
 };
 
-export { FicheIndividuelle }; // Correction ici
+export { FicheIndividuelle };
