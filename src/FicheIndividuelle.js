@@ -1,5 +1,20 @@
-// FicheIndividuelle.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const FichePokemon = ({ numeroPokemon }) => {
+  const [pokemonDetails, setPokemonDetails] = useState(null);
+
+  useEffect(() => {
+    // Faire la requête vers l'API pour obtenir les détails du Pokémon en fonction du numéro
+    axios.get(`https://pokedex-api.3rgo.tech/pokemons/${numeroPokemon}`)
+      .then(response => setPokemonDetails(response.data))
+      .catch(error => console.error('Erreur lors de la récupération des détails du Pokémon', error));
+  }, [numeroPokemon]);
+
+  // ... Reste de ton composant pour afficher les détails du Pokémon
+};
+
+export default FichePokemon; // Correction ici
 
 const FicheIndividuelle = ({ pokemon }) => {
   const [showShiny, setShowShiny] = useState(false);
@@ -44,4 +59,4 @@ const FicheIndividuelle = ({ pokemon }) => {
   );
 };
 
-export default FicheIndividuelle;
+export { FicheIndividuelle }; // Correction ici

@@ -1,11 +1,29 @@
-// Accueil.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Accueil = () => {
-  // Code de votre composant Accueil
+  const [pokemons, setPokemons] = useState([]);
+
+  useEffect(() => {
+    const apiUrl = 'https://pokedex-api.3rgo.tech/pokemons';
+
+    axios.get(apiUrl)
+      .then(response => {
+        setPokemons(response.data);
+      })
+      .catch(error => {
+        console.error('Erreur lors de la récupération des Pokémon', error);
+      });
+  }, []);  
+
   return (
     <div>
-      {/* Votre contenu Accueil ici */}
+      <h1>Liste des Pokémon</h1>
+      <ul>
+        {pokemons.map(pokemon => (
+          <li key={pokemon.id}>{pokemon.name}</li>
+        ))}
+      </ul>
     </div>
   );
 };
